@@ -1,0 +1,22 @@
+---
+const { img } = Astro.props;
+let imgUrl = `url(${img})`;
+---
+
+<div>
+  <slot />
+</div>
+
+<style define:vars={{ imgUrl }}>
+  div {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--imgUrl);
+    background-size: cover;
+    background-position: center;
+  }
+</style>

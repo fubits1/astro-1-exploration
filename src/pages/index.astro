@@ -1,28 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import FullscreenImage from "../components/FullscreenImage.astro";
+import Fullscreen from "../components/Fullscreen.astro";
+import CardsGrid from "../components/CardsGrid.svelte";
 import Data from "../data/data.json";
 import Counter from "../components/Counter.svelte";
+import backgroundImg from "../assets/img/ricardo-gomez-angel-7bzbyafVTYg-unsplash.min.jpg";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
+  <FullscreenImage img={backgroundImg}>
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
     <p class="instructions">
       Check out the <code>src/pages</code> directory to get started.<br />
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
-    <h2>Svelte Compontent</h2>
-    <Counter client:idle />
-    <h2>Data.map()</h2>
-    <ul role="list" class="link-card-grid">
-      {
-        Data.map((entry) => (
-          <Card href={entry.href} title={entry.title} body={entry.body} />
-        ))
-      }
-    </ul>
+  </FullscreenImage>
+  <main>
+    <Fullscreen>
+      <h2>Svelte Compontent</h2>
+      <Counter client:visible />
+    </Fullscreen>
   </main>
+  <h2>Data.map()</h2>
+  <CardsGrid Data={Data} client:visible />
 </Layout>
 
 <style>
@@ -30,13 +31,17 @@ import Counter from "../components/Counter.svelte";
     --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
   }
 
+  h1,
+  h2 {
+    text-align: center;
+    margin: 1rem auto;
+  }
   h1 {
     margin: 2rem 0;
   }
 
   main {
     margin: auto;
-    padding: 1em;
     max-width: 60ch;
   }
 
@@ -75,12 +80,5 @@ import Counter from "../components/Counter.svelte";
     border: 0.1em solid var(--color-border);
     border-radius: 4px;
     padding: 0.15em 0.25em;
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
   }
 </style>

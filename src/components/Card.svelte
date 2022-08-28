@@ -1,11 +1,13 @@
----
-const { href, title, body } = Astro.props;
----
+<script>
+  export let href;
+  export let title;
+  export let body;
+</script>
 
 <!-- {Object.keys(Astro.props).map((entry) => entry + "; ")}
 {`Astro.props.class: ${Astro.props.class}`} -->
 <li class="link-card">
-  <a href={href}>
+  <a {href}>
     <h2>
       {title}
       <span>&rarr;</span>
@@ -15,6 +17,7 @@ const { href, title, body } = Astro.props;
     </p>
   </a>
 </li>
+
 <style>
   :root {
     --link-gradient: linear-gradient(
