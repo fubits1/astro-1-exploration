@@ -2,6 +2,7 @@
   export let href;
   export let title;
   export let body;
+  import srcset from "../assets/img/ricardo-gomez-angel-7bzbyafVTYg-unsplash.1200px.min.jpg?w=200;400;600";
 </script>
 
 <!-- {Object.keys(Astro.props).map((entry) => entry + "; ")}
@@ -12,6 +13,7 @@
       {title}
       <span>&rarr;</span>
     </h2>
+    <img {srcset} alt="srcset" />
     <p>
       {body}
     </p>
@@ -49,6 +51,7 @@
     color: var(--text-color);
     background-color: white;
     opacity: 0.8;
+    position: relative;
   }
 
   h2 {
@@ -77,5 +80,15 @@
   .link-card:is(:hover, :focus-within) h2 span {
     will-change: transform;
     transform: translateX(2px);
+  }
+
+  img {
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0 0 0.5rem 0.5rem;
   }
 </style>
