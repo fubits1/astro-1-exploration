@@ -2,6 +2,8 @@
 const { href, title, body } = Astro.props;
 ---
 
+<!-- {Object.keys(Astro.props).map((entry) => entry + "; ")}
+{`Astro.props.class: ${Astro.props.class}`} -->
 <li class="link-card">
   <a href={href}>
     <h2>
