@@ -2,7 +2,7 @@
   export let href;
   export let title;
   export let body;
-  import srcset from "../assets/img/ricardo-gomez-angel-7bzbyafVTYg-unsplash.1200px.min.jpg?w=200;400;600";
+  import srcset from "../assets/img/ricardo-gomez-angel-7bzbyafVTYg-unsplash.1200px.min.jpg?format=webp&q=70&w=200;400;600";
 </script>
 
 <!-- {Object.keys(Astro.props).map((entry) => entry + "; ")}
