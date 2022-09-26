@@ -6,6 +6,7 @@ import CardsGrid from "../components/CardsGrid.svelte";
 import Data from "../data/data.json";
 import Counter from "../components/Counter.svelte";
 import backgroundImg from "../assets/img/ricardo-gomez-angel-7bzbyafVTYg-unsplash.1200px.min.jpg?w=1200&format=avif&q=70";
+import HTMLFetch from "../components/HTMLFetch.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -22,6 +23,8 @@ import backgroundImg from "../assets/img/ricardo-gomez-angel-7bzbyafVTYg-unsplas
       <Counter client:visible />
     </Fullscreen>
   </main>
+  <h2>HTML Fetch</h2>
+  <HTMLFetch />
   <h2>Data.map()</h2>
   <CardsGrid Data={Data} client:visible />
 </Layout>

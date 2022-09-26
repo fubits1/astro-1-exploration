@@ -1,0 +1,21 @@
+<blockquote
+  set:html={fetch("https://icanhazdadjoke.com/", {
+    method: "GET",
+    headers: { Accept: "application/json" },
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      // return JSON.stringify(response);
+      return `icanhazdadjoke.com: ${response.joke} (id: ${response.id})`;
+    })
+    .catch((err) => console.error(err))}
+>
+</blockquote>
+
+<style>
+  blockquote {
+    max-width: 60ch;
+    text-align: center;
+    margin: 1rem auto;
+  }
+</style>
